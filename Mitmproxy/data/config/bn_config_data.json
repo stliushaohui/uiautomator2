@@ -1,0 +1,718 @@
+[
+    {
+        /// H5 支付界面
+        "url": "https://m.xiaotengyouxi.com/index/web",
+        "request": [
+            [
+                "app_id",
+                "channel",
+                "total_fee",
+                "sdk_version",
+                "os",
+                "product_name",
+                "user_name",
+                "user_id",
+                "time"
+            ]
+        ]
+    },
+    {
+        /// 3x YSDK 切支付接口
+   		"url": "https://m.xiaotengyouxi.com/api/ysdksw",
+        "request": [
+            [
+                "game_version",
+                "sdk_version",
+                "device_id",
+                "imei",
+                "os",
+                "user_name",
+                "user_id",
+                "channel",
+                "app_id",
+                "time",
+                "money",
+                "product_id",
+                "osv",
+                "role_level",
+                "oaid",
+                "sign"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "c1",
+                    "sign"
+                ]
+            }
+        ]
+    },
+    {
+        /// 3x 应用宝 更新 Token 接口
+        "url": "https://m.xiaotengyouxi.com/account/uptoken",
+        "request": [
+            [
+                "game_id",
+                "app_id",
+                "openId",
+                "openKey",
+                "pf",
+                "pfKey",
+                "platForm",
+                "user_id"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ]
+        ]
+    },
+    {
+        /// H5 界面、渠道 下单接口
+        "url": "https://m.xiaotengyouxi.com/api/request",
+        "request": [
+            [
+                "access_token",
+                "total_fee",
+                "server_id",
+                "cp_trade_no",
+                "product",
+                "product_id",
+                "exchange_rate",
+                "app_role_id",
+                "app_role_name",
+                "notify_url",
+                "device_id",
+                "imei",
+                "os",
+                "os_version",
+                "sdk_version",
+                "game_version",
+                "device_name",
+                "app_id",
+                "channel",
+                "time",
+                "and_id;-1",
+                "pay_type",
+                "sign",
+                "yh",
+                "oaid"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "url",
+                    "order_sn"
+                ]
+            }
+        ]
+    },
+    {
+        /// 个人中心 修改密码接口
+        "url": "https://m.xiaotengyouxi.com/account/userChgPwd",
+        "request": [
+            [
+                "user_name",
+                "cur_password",
+                "new_password",
+                "access_token",
+                "time",
+                "app_id",
+                "channel",
+                "os",
+                "sign"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ]
+        ]
+    },
+    {
+        /// 初始化接口
+        "url": "https://m.xiaotengyouxi.com/api/init",
+        "request": [
+            [
+                "channel",
+                "app_id",
+                "game_version",
+                "sdk_version",
+                "device_id",
+                "imei",
+                "time",
+                "os",
+                "fst_start;-1",
+                "sign",
+                "oaid"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ]
+        ]
+    },
+	{
+        /// 发送短信接口
+        "url": "https://m.xiaotengyouxi.com/account/sendCode",
+        "request": [
+            [
+                "tel_num",
+                "app_id",
+                "channel",
+                "os",
+                "time",
+                "type",
+                "sign",
+                "access_token;-1"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ]
+        ]
+    },
+    {
+        /// 实名认证接口
+        "url": "https://m.xiaotengyouxi.com/account/bindReal",
+        "request": [
+            [
+                "access_token",
+                "name",
+                "id",
+                "app_id",
+                "channel",
+                "os",
+                "time",
+                "game_version",
+                "sdk_version",
+                "sign"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ]
+        ]
+    },
+    {
+    	/// 查询订单状态接口 ( H5 支付界面调用 )
+        "url": "https://m.xiaotengyouxi.com/api/backState",
+        "request": [
+            [
+                "access_token",
+                "order_sn",
+                "app_id",
+                "channel",
+                "sign"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "status;> 1"
+                ]
+            }
+        ]
+    },
+    {
+        /// 忘记密码 接口 (手机号)
+        "url": "https://m.xiaotengyouxi.com/account/telChgPwd",
+        "request": [
+            [
+                "tel_num",
+                "code",
+                "password",
+                "time",
+                "app_id",
+                "channel",
+                "os",
+                "sign"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "user_name"
+                ]
+            }
+        ]
+    },
+    {
+        /// 注册 并 登录接口 (快速游戏、普通注册)
+        "url": "https://m.xiaotengyouxi.com/account/userReg",
+        "request": [
+            [
+                "reg_type",
+                "user_name;-1",
+                "password;-1",
+                "tel_num;-1",
+                "smscode;-1",
+                "device_id",
+                "imei",
+                "os_version",
+                "sdk_version",
+                "device_name",
+                "time",
+                "app_id",
+                "channel",
+                "and_id",
+                "ad_id",
+                "os",
+                "sign",
+                "oaid"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "authorize_code",
+                    "user_name",
+                    "user_id"
+                ]
+            }
+        ]
+    },
+    {
+        /// 登录接口
+        "url": "https://m.xiaotengyouxi.com/account/authorize",
+        "request": [
+            [
+                "login_type",
+                "user_name;-1",
+                "password;-1",
+                "tel_num;-1",
+                "smscode;-1",
+                "access_token;-1",
+                "ysdk_token;-1",
+                "channel_sid;-1",
+                "time",
+                "os",
+                "app_id",
+                "channel",
+                "device_id",
+                "imei",
+                "oaid",
+                "os_version;-1",
+                "sdk_version;-1",
+                "device_name;-1",
+                "ad_id;-1",
+                "and_id;-1",
+                "sign"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "authorize_code",
+                    "user_name",
+                    "password;-1",
+                    "user_id"
+                ]
+            }
+        ]
+    },
+    {
+        /// 绑定 与 解绑 手机接口
+        "url": "https://m.xiaotengyouxi.com/account/opBind",
+        "request": [
+            [
+                "tel_num",
+                "user_name",
+                "code",
+                "access_token;-1",
+                "app_id",
+                "channel",
+                "os",
+                "op_type",
+                "time",
+                "sid;-1"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ]
+        ]
+    },
+    {
+        /// 获取 帐号密码 接口 (用于快速注册)
+        "url": "https://m.xiaotengyouxi.com/account/quickReg",
+        "request": [
+            [
+                "device_id",
+                "imei",
+                "os_version",
+                "sdk_version",
+                "device_name",
+                "app_id",
+                "channel",
+                "os",
+                "time",
+                "sign"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "username",
+                    "password"
+                ]
+            }
+        ]
+    },
+    {
+        /// 个人中心 info 接口
+        "url": "https://m.xiaotengyouxi.com/account/info",
+        "request": [
+            [
+                "user_name",
+                "access_token",
+                "time",
+                "app_id",
+                "channel",
+                "game_version",
+                "sdk_version",
+                "device_id",
+                "imei",
+                "os",
+                "sign",
+                "oaid"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    [
+                        "real_name",
+                        "real_id",
+                        "tel_num"
+                    ],
+                    {
+                        "key": "service_info",
+                        "values": [
+                            "type",
+                            "name",
+                            "desc",
+                            "value",
+                            "link;-1"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        /// 获取 热更新SDK 配置
+        "url": "https://m.xiaotengyouxi.com/api/plugin",
+        "request": [
+            [
+                "channel",
+                "app_id",
+                "game_version",
+                "sdk_version",
+                "device_id",
+                "imei",
+                "time",
+                "os",
+                "sign"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    {
+                        "key": "plugin",
+                        "values": [
+                            {
+                                "key": "plugin",
+                                "values": [
+                                    "name",
+                                    "url",
+                                    "version"
+                                ]
+                            },
+                            {
+                                "key": "delete",
+                                "values": [
+                                    "name",
+                                    "version"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+/// protoBuf 统计接口
+    {
+        /// protoBuf , START 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.xiaotengyouxi.com/bna1/start",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "appid",
+                "os",
+                "pn;-1",
+                "ainfo"
+            ],
+            {
+                "key": "di",
+                "values": [
+                    "adId",
+                    "andId",
+                    "ch",
+                    "dn",
+                    "did",
+                    "imei",
+                    "net",
+                    "osv",
+                    "ss",
+                    "sdkv",
+                    "gv",
+                    "oaid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf , GAME 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.xiaotengyouxi.com/bna1/game",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "appid",
+                "os"
+            ],
+            {
+                "key": "di",
+                "values": [
+                    "adId",
+                    "andId",
+                    "ch",
+                    "dn",
+                    "did",
+                    "imei",
+                    "net",
+                    "osv",
+                    "ss",
+                    "sdkv",
+                    "gv",
+                    "oaid"
+                ]
+            },
+            {
+                "key": "ui",
+                "values": [
+                    "level",
+                    "rid",
+                    "rn",
+                    "sid",
+                    "uid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf , 升级 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.xiaotengyouxi.com/bna1/roleup",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "appid",
+                "os"
+            ],
+            {
+                "key": "di",
+                "values": [
+                    "adId",
+                    "andId",
+                    "ch",
+                    "dn",
+                    "did",
+                    "imei",
+                    "net",
+                    "osv",
+                    "ss",
+                    "sdkv",
+                    "gv",
+                    "oaid"
+                ]
+            },
+            {
+                "key": "ui",
+                "values": [
+                    "level",
+                    "rid",
+                    "rn",
+                    "sid",
+                    "uid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf , Dur 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.xiaotengyouxi.com/bna1/dur",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "appid",
+                "os",
+                "uid",
+                "rid;-1",
+                "sid;-1",
+                "lifeid",
+                "dur",
+                "st"
+            ],
+            {
+                "key": "di",
+                "values": [
+                    "adId",
+                    "andId",
+                    "ch",
+                    "dn",
+                    "did",
+                    "imei",
+                    "net",
+                    "osv",
+                    "ss",
+                    "sdkv",
+                    "gv",
+                    "oaid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf , 在线时长打点 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.xiaotengyouxi.com/bna1/period",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "appid",
+                "os",
+                "uid",
+                "rid",
+                "sid",
+                "lifeid",
+                "period",
+                "v"
+            ],
+            {
+                "key": "di",
+                "values": [
+                    "adId",
+                    "andId",
+                    "ch",
+                    "dn",
+                    "did",
+                    "imei",
+                    "net",
+                    "osv",
+                    "ss",
+                    "sdkv",
+                    "gv",
+                    "oaid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf , 下单 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.xiaotengyouxi.com/bna1/xiadan",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "appid",
+                "os",
+                "uid",
+                "rid",
+                "sid",
+                "money",
+                "cpoid"
+            ],
+            {
+                "key": "di",
+                "values": [
+                    "adId",
+                    "andId",
+                    "ch",
+                    "dn",
+                    "did",
+                    "imei",
+                    "net",
+                    "osv",
+                    "ss",
+                    "sdkv",
+                    "gv",
+                    "oaid"
+                ]
+            }
+        ]
+    }
+]

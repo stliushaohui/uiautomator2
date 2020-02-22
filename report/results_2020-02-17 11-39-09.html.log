@@ -1,0 +1,14 @@
+[   INFO] [2020-02-17 11:39:09,354] [5632] [HTMLReport.py(101)] - 预计并发线程数：1
+[   INFO] [2020-02-17 11:41:00,527] [5632] [HTMLReport.py(130)] - 
+Pass	test_1_delete_screen (bn_test.testcase.gjsg_test.GjsgTest)
+Pass	test_2_sdk (bn_test.testcase.gjsg_test.GjsgTest)
+Pass	test_3_game (bn_test.testcase.gjsg_test.GjsgTest)
+
+[   INFO] [2020-02-17 11:41:00,528] [5632] [HTMLReport.py(151)] - 
+测试结束！
+运行时间: 0:01:51.172258
+共计执行用例数量：3
+执行成功用例数量：3
+执行失败用例数量：0
+跳过执行用例数量：0
+产生异常用例数量：0

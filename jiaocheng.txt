@@ -1,0 +1,9 @@
+﻿运行自动化测试脚本流程：
+1、搭建环境，安装python3，pycharm
+2、安装appium命令行版(https://www.cnblogs.com/mapu/p/8666239.html)
+2、进入requirements.txt目录(uiautomator2\bn_test\file)，安装脚本需要的库，命令行输入:pip install requirements.txt
+3、确定手机已经连接到adb，命令输入adb device,可以查看是否连接上设备
+4、部署相关的守护进程，命令行输入python -m uiautomator2 init,安装完成，设备上会多一个uiautomator的应用
+5、手机连接代理，ip地址跟平时抓包工具的一样，端口号为8888
+6、运行uiautomator2\testUI.py脚本，点击开启Appium按钮，等待几秒钟，命令行出现（[Appium] Welcome to Appium v1.16.0 [Appium] Appium REST http interface listener started on 0.0.0.0:4723）等关键字，输入包名（格式为：com.xsgmjl.bingniaozfyl，可去运营后台查看子游戏包名），点击测试按钮，即可开始测试
+7、测试结束后，点击生成分析报告按钮，点击生成展示页按钮，uiautomator2\mainTest.html为测试报告页面

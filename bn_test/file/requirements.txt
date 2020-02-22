@@ -1,0 +1,8 @@
+tkinter
+airtest        
+uiautomator2      
+psutil           
+mitmproxy    
+simplejson    
+yagmail      
+HTMLReport

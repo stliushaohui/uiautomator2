@@ -1,0 +1,778 @@
+[
+    {
+        /// 初始化接口 v2 版本
+        "url": "https://oauth.aiyinghun.com/app/init/v2",
+        "request": [
+            [
+                "gameId",
+                "channelId",
+                "appId",
+                "gameVersion",
+                "sdkVersion",
+                "fst_start"
+            ],
+            {
+                "key": "channel",
+                "values": [
+                    "app_key",
+                    "jh_channel"
+                ]
+            }
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "boardMsg",
+                    "forceMsg",
+                    "updateUrl",
+                    "h5Url",
+                    "isForce",
+                    "updateMsg",
+                    "isSwBn",
+                    "gameSpiritUrl",
+                    "gdt_report",
+                    "showGameSpirit",
+                    "isChecking",
+                    "orientation"
+                ]
+            }
+        ]
+    },
+    {
+        /// 初始化接口 v3 版本
+   		"url": "https://oauth.aiyinghun.com/app/init/v3",
+        "request": [
+            [
+                "gameId",
+                "channelId",
+                "appId",
+                "gameVersion",
+                "sdkVersion",
+                "fst_start",
+                "os",
+                "pkgCheck",
+                "sign"
+            ],
+            {
+                "key": "channel",
+                "values": [
+                    "app_key",
+                    "jh_channel"
+                ]
+            },
+            {
+                "key": "info",
+                "values": [
+                    "ad_id",
+                    "and_id",
+                    "did",
+                    "dn",
+                    "gv",
+                    "imei",
+                    "net",
+                    "oaid",
+                    "os",
+                    "osv",
+                    "sc",
+                    "sdkv"
+                ]
+            }
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "boardMsg",
+                    "forceMsg",
+                    "updateUrl",
+                    "h5Url",
+                    "isForce",
+                    "updateMsg",
+                    "isSwBn",
+                    "gameSpiritUrl",
+                    "gdt_report",
+                    "showGameSpirit",
+                    "isChecking",
+                    "orientation"
+                ]
+            }
+        ]
+    },
+    {
+        /// 二次验证成功后 的 info 接口
+        "url": "https://oauth.aiyinghun.com/user/info/v2",
+        "request": [
+            [
+                "gameId",
+                "channelId",
+                "appId",
+                "userId",
+                "sign"
+            ],
+            {
+                "key": "channel",
+                "values": [
+                    "app_key",
+                    "jh_channel"
+                ]
+            },
+            {
+                "key": "info",
+                "values": [
+                    "ad_id",
+                    "and_id",
+                    "did",
+                    "dn",
+                    "gv",
+                    "imei",
+                    "net",
+                    "oaid",
+                    "os",
+                    "osv",
+                    "sc",
+                    "sdkv"
+                ]
+            }
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "userId",
+                    "appId",
+                    "name",
+                    "idCard",
+                    "isNeedReal",
+                    "isCollectInfo",
+                    "svipUrl",
+                    "bnuser"
+                ]
+            }
+        ]
+    },
+    {
+        /// 应用宝更新 Token 接口
+        "url": "https://oauth.aiyinghun.com/account/uptoken",
+        "request": [
+            [
+                "platForm",
+                "gameId",
+                "channelId",
+                "appId",
+                "openId",
+                "openKey",
+                "pf",
+                "pfKey",
+                "userId"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ]
+        ]
+    },
+    {
+        /// 获取切支付接口
+        "url": "https://pay.aiyinghun.com/api/init",
+        "request": [
+            [
+                "gameId",
+                "channelId",
+                "appId",
+                "userId",
+                "amount",
+                "gameVersion",
+                "roleLevel",
+                "vipLevel"
+            ],
+            {
+                "key": "channel",
+                "values": [
+                    "app_key",
+                    "jh_channel"
+                ]
+            }
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "switch"
+                ]
+            }
+        ]
+    },
+    {
+        /// 渠道下单接口
+        "url": "https://pay.aiyinghun.com/api/request",
+        "request": [
+            [
+                "gameId",
+                "channelId",
+                "appId",
+                "userId",
+                "amount",
+                "roleUid",
+                "roleName",
+                "serverId",
+                "productId",
+                "productName",
+                "productCount",
+                "cpOrderId",
+                "notifyUrl",
+                "sign",
+                "sandbox"
+            ],
+            {
+                "key": "channel",
+                "values": [
+                    "app_key",
+                    "jh_channel"
+                ]
+            },
+            {
+                "key": "info",
+                "values": [
+                    "dn",
+                    "osv",
+                    "sdkv",
+                    "imei",
+                    "ad_id",
+                    "and_id",
+                    "did",
+                    "os",
+                    "gv",
+                    "net",
+                    "oaid",
+                    "sc"
+                ]
+            }
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "orderId",
+                    "createTime",
+                    "gameId",
+                    "channelId",
+                    "appId",
+                    "userId",
+                    "notifyUrl",
+                    "exchangeRate",
+                    "apple_product_id",
+                    "sign"
+                ]
+            }
+        ]
+    },
+    {
+        "url": "https://pay.aiyinghun.com/pay/center",
+        "request": [
+            [
+                "total_fee",
+                "product"
+            ]
+        ]
+    },
+	{
+        /// 发行 H5 支付界面 下单接口
+        "url": "https://pay.aiyinghun.com/pay/request",
+        "request": [
+            [
+                "gameId",
+                "aliAppPay",
+                "amount",
+                "productId",
+                "sign",
+                "roleUid",
+                "productCount",
+                "serverId",
+                "userId",
+                "productName",
+                "payType",
+                "appId",
+                "roleName",
+                "notifyUrl",
+                "cpOrderId",
+                "channelId"
+            ],
+            {
+                "key": "channel",
+                "values": [
+                    "app_key",
+                    "jh_channel"
+                ]
+            },
+            {
+                "key": "info",
+                "values": [
+                    "ad_id",
+                    "and_id",
+                    "did",
+                    "dn",
+                    "gv",
+                    "imei",
+                    "net",
+                    "oaid",
+                    "os",
+                    "osv",
+                    "sc",
+                    "sdkv"
+                ]
+            }
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "bnOrderId",
+                    "cpOrderId",
+                    "url"
+                ]
+            }
+        ]
+    },
+    {
+        /// 支付完毕后查询订单接口 (只限发行H5支付)
+        "url": "https://pay.aiyinghun.com/api/getOrderInfo",
+        "request": [
+            [
+                "gameId",
+                "orderId",
+                "appId",
+                "sign",
+                "channelId"
+            ]
+        ],
+        "response": [
+            [
+                "ret",
+                "msg"
+            ],
+            {
+                "key": "content",
+                "values": [
+                    "appId",
+                    "channelId",
+                    "gameId",
+                    "orderId",
+                    "status",
+                    "userId"
+                ]
+            }
+        ]
+    },
+    {
+    	/// 旧版 上报接口 (目前只使用在 支付失败上报)
+        "url": "https://tj.aiyinghun.com/fxapp",
+        "request": [
+            [
+                "gid",
+                "code",
+                "sign",
+                "error",
+                "uid",
+                "time",
+                "event",
+                "aid",
+                "class",
+                "cid",
+                "order"
+            ],
+            {
+                "key": "ocid",
+                "values": [
+                    "app_key",
+                    "jh_channel"
+                ]
+            },
+            {
+                "key": "di",
+                "values": [
+                    "ad_id",
+                    "and_id",
+                    "did",
+                    "dn",
+                    "gv",
+                    "imei",
+                    "net",
+                    "oaid",
+                    "os",
+                    "osv",
+                    "sc",
+                    "sdkv"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.aiyinghun.com/fxa1/start",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "gid",
+                "cid",
+                "aid",
+                "ainfo"
+            ],
+            {
+                "key": "oc",
+                "values": [
+                    "ak",
+                    "ch"
+                ]
+            },
+            {
+                "key": "di",
+                "values": [
+                    "os",
+                    "did",
+                    "dn",
+                    "ss",
+                    "osv",
+                    "net",
+                    "sdkv",
+                    "imei",
+                    "adId",
+                    "andId",
+                    "gv",
+                    "pn",
+                    "oaid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.aiyinghun.com/fxa1/enter",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "gid",
+                "cid",
+                "aid",
+                "uid"
+            ],
+            {
+                "key": "oc",
+                "values": [
+                    "ak",
+                    "ch"
+                ]
+            },
+            {
+                "key": "di",
+                "values": [
+                    "os",
+                    "did",
+                    "dn",
+                    "ss",
+                    "osv",
+                    "net",
+                    "sdkv",
+                    "imei",
+                    "adId",
+                    "andId",
+                    "gv",
+                    "pn",
+                    "oaid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.aiyinghun.com/fxa1/role",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "gid",
+                "cid",
+                "aid"
+            ],
+            {
+                "key": "oc",
+                "values": [
+                    "ak",
+                    "ch"
+                ]
+            },
+            {
+                "key": "di",
+                "values": [
+                    "os",
+                    "did",
+                    "dn",
+                    "ss",
+                    "osv",
+                    "net",
+                    "sdkv",
+                    "imei",
+                    "adId",
+                    "andId",
+                    "gv",
+                    "pn",
+                    "oaid"
+                ]
+            },
+            {
+                "key": "ui",
+                "values": [
+                    "sid",
+                    "sn",
+                    "rid",
+                    "rn",
+                    "rl",
+                    "vl",
+                    "rcoin",
+                    "party",
+                    "uid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.aiyinghun.com/fxa1/game",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "gid",
+                "cid",
+                "aid"
+            ],
+            {
+                "key": "oc",
+                "values": [
+                    "ak",
+                    "ch"
+                ]
+            },
+            {
+                "key": "di",
+                "values": [
+                    "os",
+                    "did",
+                    "dn",
+                    "ss",
+                    "osv",
+                    "net",
+                    "sdkv",
+                    "imei",
+                    "adId",
+                    "andId",
+                    "gv",
+                    "pn",
+                    "oaid"
+                ]
+            },
+            {
+                "key": "ui",
+                "values": [
+                    "sid",
+                    "sn",
+                    "rid",
+                    "rn",
+                    "rl",
+                    "vl",
+                    "rcoin",
+                    "party",
+                    "uid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.aiyinghun.com/fxa1/roleup",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "gid",
+                "cid",
+                "aid"
+            ],
+            {
+                "key": "oc",
+                "values": [
+                    "ak",
+                    "ch"
+                ]
+            },
+            {
+                "key": "di",
+                "values": [
+                    "os",
+                    "did",
+                    "dn",
+                    "ss",
+                    "osv",
+                    "net",
+                    "sdkv",
+                    "imei",
+                    "adId",
+                    "andId",
+                    "gv",
+                    "pn",
+                    "oaid"
+                ]
+            },
+            {
+                "key": "ui",
+                "values": [
+                    "sid",
+                    "sn",
+                    "rid",
+                    "rn",
+                    "rl",
+                    "vl",
+                    "rcoin",
+                    "party",
+                    "uid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.aiyinghun.com/fxa1/task",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "gid",
+                "cid",
+                "aid",
+                "uid",
+                "sid",
+                "rid",
+                "rl",
+                "task"
+            ],
+            {
+                "key": "oc",
+                "values": [
+                    "ak",
+                    "ch"
+                ]
+            },
+            {
+                "key": "di",
+                "values": [
+                    "os",
+                    "did",
+                    "dn",
+                    "ss",
+                    "osv",
+                    "net",
+                    "sdkv",
+                    "imei",
+                    "adId",
+                    "andId",
+                    "gv",
+                    "pn",
+                    "oaid"
+                ]
+            }
+        ]
+    },
+    {
+        /// protoBuf 统计接口 (由于接口统一 所以 request 里面的 key 为 固定标识 tj_upload)
+        "url": "https://tj.aiyinghun.com/fxa1/gold",
+        "type": "tj_upload",
+        "isAnalysisParams": false,
+        "request": [
+            [
+                "gid",
+                "cid",
+                "aid",
+                "uid",
+                "sid",
+                "rid",
+                "rl",
+                "gain",
+                "coin",
+                "pay",
+                "action",
+                "item",
+                "itemc",
+                "bind"
+            ],
+            {
+                "key": "oc",
+                "values": [
+                    "ak",
+                    "ch"
+                ]
+            },
+            {
+                "key": "di",
+                "values": [
+                    "os",
+                    "did",
+                    "dn",
+                    "ss",
+                    "osv",
+                    "net",
+                    "sdkv",
+                    "imei",
+                    "adId",
+                    "andId",
+                    "gv",
+                    "pn",
+                    "oaid"
+                ]
+            }
+        ]
+    },
+    {
+    	/// 踢下线接口 (由于接口是根据返回码 进行操作的 所以 response 里面的 key 为固定标识 if_code)
+        "url": "https://heartbeat.aiyinghun.com/kick",
+        "request": [
+            [
+                "uid",
+                "type",
+                "app_id"
+            ]
+        ],
+        "response": [
+            [
+                "if_code"
+            ]
+        ]
+    }
+]

@@ -1,0 +1,388 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="https://static.hdslb.com/images/favicon.ico">
+    <!-- 代码展示css（下面还有引用js） -->
+    <link href="./prism.css" rel="stylesheet">
+    <title>测试结果</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <style>
+		body {
+			word-break: break-all;
+		}
+        .bui-container {
+            padding: 30px 0;
+        }
+        table {
+            word-break: break-all;
+        }
+		td,th {
+			font-weight:normal;
+			vertical-align:middle !important;
+		}
+		pre {
+			width:100%;
+			height:100%;
+			background-color:#fff;
+			border:none;
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			font-size: 14px;
+			color: #333;
+			white-space: pre-line;
+		}
+        /*背景层1的样式*/
+        #popLayer {
+            display: none;
+            background-color: #B3B3B3;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            -moz-opacity: 0.8;
+            opacity:.80;
+            filter: alpha(opacity=80);/* 只支持IE6、7、8、9 */
+            width: 100%; 
+            height: 100%;
+        }
+ 
+        /*弹出层1的样式*/
+        #popBox {
+            display: none;
+            background-color: #FFFFFF;
+            z-index: 11;
+            width: 700px;
+            height: 700px;
+            position:fixed;
+            top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            margin:auto;
+            overflow: auto;
+            border-radius:5px
+        }
+        /*弹出层1的样式*/
+        #popBox2 {
+            display: none;
+            background-color: #FFFFFF;
+            z-index: 11;
+            width: 700px;
+            height: 700px;
+            position:fixed;
+            top:0;
+            right:0;
+            left:0;
+            bottom:0;
+            margin:auto;
+            overflow: auto;
+            border-radius:5px
+        }
+ 
+        /* #popBox .close{
+            text-align: right;
+            margin-right: 5px;
+            background-color: #F8F8F8;
+        } */
+ 
+        /*关闭按钮*/
+        /* #popBox .close a {
+            text-decoration: none;
+            color: #2D2C3B;
+        }		 */
+    </style>
+</head>
+
+<body id="mainBody">
+    <!-- 基本信息 -->
+    <div id = "mainDiv" class="container bui-container">
+        <p><h2 style="display:inline;">测试结果</h2><h5 id = "test01"  style="display:inline;">by:SamSam</h5></p>
+		<p><h4 id="test_time">&timeStamp&</h4></p>
+        <div id = "headDiv" class="panel panel-default">
+            <div id="textAppId" class="panel-heading">&appId&</div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="table1">
+                            <th>游戏版本号</th>
+                            <th>SDK版本号</th>
+                            <th>冰鸟or发行or轻度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th id = "game_version" width="15%">&gameversion&</th>
+                            <td id = "sdk_version" width="15%">&sdkversion&</td>
+                            <td id = "is_bn" width="70%"><pre>&isBn&</pre></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 接口测试信息  -->
+        <div id="insertDiv">
+            &testInterface&
+        </div>
+        <!-- 图片表格信息 -->
+        <div class="panel panel-default" style="width: 1170px;">
+            <div id="imgTitleDiv" class="panel-heading">
+                <h3 class="panel-title">截屏(最多展示前六张)</h3>
+            </div>
+            <div id="rootImgDiv" class="panel panel-default" style="width: 1170px;">
+                &img&
+            </div>
+        </div>
+    </div> 
+    <!-- 遮罩 -->
+    <div id="popLayer" onclick="clickPopLayer()"></div>
+    <!-- 弹框样式1 -->
+    <div id="popBox">
+        <div class="float_close" style="text-align:right">
+            <button style="margin: 10px;" onclick="closeBox()">关闭</button>
+        </div>
+        <div class="content" style="color:#333;">
+            <fron id = "floatTitle"style="text-align: center; width: 100%;float: left;">我是标题</fron>
+            <!-- <h3 id = "floatTitle" style="text-align: center; width: 100%;float: left;">我是标题</h3> -->
+            <pre  style="display:block;"><code id="showCode" class="language-json"></code></pre>
+        </div>
+        <!-- <div class="content">我是弹出层</div> -->
+    </div>
+    <!-- 弹框样式2 -->
+    <div id="popBox2">
+        <div class="float_close" style="text-align:right">
+            <button style="margin: 10px;" onclick="closeTitleBox()">关闭</button>
+        </div>
+        <div id="wtHeadDiv" class="content" style="color:#333;">
+            <fron id = 'wtFloatTitle' style='text-align:center;width:100%;float:left'>我是标题</fron>
+            <pre ><code id="wtShowCode" class="language-json" ></code></pre>
+        </div>
+        <!-- <div class="content">我是弹出层</div> -->
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <!-- 代码展示js（上面还有引用css） -->
+    <script src="./prism.js"></script>
+
+    <script >
+         
+        $(function() {
+        //     $("#test_time").load("./Mitmproxy/data/analysis_result_data.json",function(responseTxt,statusTxt,xhr){
+        //             if(statusTxt=="success"){
+        //                 console.log("load jsonFile Success")
+        //                 let data=JSON.parse(responseTxt)
+        //                 var dataLength=data.length
+        //                 var urlArray = new Array()
+        //                 var insertHtml = ""
+                        
+        //                for(var i = 0;i<dataLength;i++){
+        //                     var titleArray = new Array()//匹配请求的失败或者错误的弹框标题
+        //                     var contentArray = new Array()//匹配请求的失败或者错误的弹框内容
+        //                     var wtTitleArray = new Array()//匹配请求的警告弹框标题
+        //                     var wtContentArray = new Array()//匹配请求的警告弹框内容
+        //                     var showSuccess = ""                                    //成功字符style
+        //                     var showFail = ""                                       //失败字符style
+        //                     var showWT = ""                                         //警告字符style
+        //                     var dataInfo=data[i]                                    //接口数据
+        //                     var url=dataInfo.url                                    //请求接口
+        //                     var paramsData=dataInfo.params                          //请求数据
+        //                     var responesData = dataInfo.response                    //返回数据
+
+        //                     var resultData = dataInfo.result                        //分析的结果数据
+        //                     var paramsyKeyData = resultData.paramsKey               //分析请求数据
+        //                     var sponesKeyData = resultData.responseKey              //分析响应数据
+
+        //                     var paramsySuccesResultData= paramsyKeyData.success     //分析后 成功 的请求数据
+        //                     var paramsyErrorResultData = paramsyKeyData.errorKey    //分析后 错误 的请求数据
+        //                     var paramsyFailResultData = paramsyKeyData.fail         //分析后 失败 的请求数据
+        //                     var paramsyWarningResultData = paramsyKeyData.warningKey//分析后 警告 的请求数据
+
+        //                     var spSuccessResultData = sponesKeyData.success             //分析后 成功 的返回数据
+        //                     var spFaileResultData = sponesKeyData.fail                  //分析后 失败 的返回数据
+        //                     var spErrorResultData = sponesKeyData.errorKey              //分析后 错误 的返回数据    
+        //                     var spWarningResultData = sponesKeyData.warningKey          //分析后 警告 的返回数据
+        //                     if(paramsyErrorResultData.length==0&&paramsyFailResultData.length==0&&paramsyWarningResultData==0&&spFaileResultData.length==0&&spErrorResultData.length==0&&spWarningResultData.length==0){
+        //                         showSuccess = 'inline'
+        //                         showFail = 'none'
+        //                         showWT = 'none'
+        //                     }else{
+        //                         showSuccess = 'none'
+        //                         if(paramsyErrorResultData.length!=0||paramsyFailResultData.length!=0||spFaileResultData.length!=0||spErrorResultData.length!=0){
+        //                             showFail = 'inline'
+        //                             if(paramsyErrorResultData.length!=0){
+        //                                 wtTitleArray.push("匹配请求错误详情")
+        //                                 wtContentArray.push(paramsyErrorResultData)
+        //                             }
+        //                             if(paramsyFailResultData.length!=0){
+        //                                 wtTitleArray.push("匹配请求失败详情")
+        //                                 wtContentArray.push(paramsyFailResultData)
+        //                             }
+        //                             if(spFaileResultData.length!=0){
+        //                                 wtTitleArray.push("匹配返回失败详情")
+        //                                 wtContentArray.push(spFaileResultData)
+        //                             }
+        //                             if(spErrorResultData.length!=0){
+        //                                 wtTitleArray.push("匹配返回错误详情")
+        //                                 wtContentArray.push(spErrorResultData)
+        //                             }
+        //                         }else{
+        //                             showFail = 'none'
+        //                         }
+        //                         if(paramsyWarningResultData.length!=0||spWarningResultData.length!=0){
+        //                             showWT = 'inline'
+        //                             if(paramsyWarningResultData.length!=0){
+        //                                 wtTitleArray.push("匹配请求警告详情")
+        //                                 wtContentArray.push( paramsyWarningResultData)
+        //                             }
+        //                             if(spWarningResultData.length!=0){
+        //                                 wtTitleArray.push("匹配返回警告详情")
+        //                                 wtContentArray.push(spWarningResultData)
+        //                             }
+        //                         }else{
+        //                             showWT = 'none'
+        //                         }
+        //                     }
+                            
+        //                     urlArray[i] = url
+        //                     if(url=="https://m.xiaotengyouxi.com/api/init"){
+        //                         // let paramsData=dataInfo.params
+        //                         let testTime=paramsData.time
+        //                         let responseData =  dataInfo.response
+        //                         let contentData = responseData.content
+                                
+        //                         document.getElementById("test_time").innerHTML="测试时间:"+timestampToTime(testTime)
+        //                         document.getElementById("textAppId").innerHTML="appId:"+paramsData.app_id
+        //                         document.getElementById("game_version").innerHTML=paramsData.game_version
+        //                         document.getElementById("sdk_version").innerHTML=paramsData.sdk_version
+        //                         if(url=="https://m.xiaotengyouxi.com/api/init"){
+        //                             let gdtReportData = contentData.gdt_report
+        //                             let ttReportData = contentData.tt_report
+        //                             document.getElementById("is_bn").innerHTML="该游戏是冰鸟游戏，gdt_report为"+gdtReportData+"而tt_report为"+ttReportData
+        //                         }else if(gameUrl=="https://iyinghun.com"){
+        //                             document.getElementById("is_bn").innerHTML="该游戏是发行游戏"
+        //                         }else if(gameUrl=="https://qd.520wanyouxi.com"){
+        //                             document.getElementById("is_bn").innerHTML="该游戏是轻度游戏"
+        //                         }
+        //                     }
+        //                     insertHtml+="<div class='panel panel-default'><div class='panel-heading' role='tab' id='headingOne"+i+"'><h4 class='panel-title'><a id='test_url"+i+"' role='button' data-toggle='collapse' data-parent='#accordion' href='#collapseOne"+i+"' aria-expanded='true' aria-controls='collapseOne'>测试的接口:"+url+"</a><div style='float: right;'><strong id='ifsSuccess' style='color: green;display:"+showSuccess+";'> 成功</strong><strong id='ifsFail' data-failtitle='"+JSON.stringify(wtTitleArray)+"' data-failcontent='"+JSON.stringify(wtContentArray)+"' style='color:red;display:"+showFail+";'> 失败</strong><strong id='ifsWT' data-tag = '"+"showDialog2"+"' data-titlejson = '"+ JSON.stringify(wtTitleArray)+"' data-contentjson = '"+ JSON.stringify(wtContentArray)+"' style='color: orange;display:"+showWT+";'> 警告</strong></div></h4></div><div id='collapseOne"+i+"' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='headingOne'><div class='panel-body'><table class='table table-bordered'><thead><tr class='table1'><th width='50%'>请求数据</th><th width='50%'>返回数据</th></tr></thead><tbody><tr><td  width='50%'><a id = 'request_ditail"+i+"' data-title = '请求数据详情' data-val = '"+JSON.stringify(paramsData)+"' >请求数据详情</a></td><td width='50%'><a id = 'response_ditail"+i+"' data-title = '返回数据详情' data-val = '"+JSON.stringify(responesData)+"'>返回数据详情</a></td></tr></tbody></table><table class='table table-bordered'><tr><td><a id='request_success_ditail"+i+"' data-title = '匹配请求成功详情' data-val = '"+JSON.stringify(paramsySuccesResultData)+"'>匹配请求成功详情</a></td><td><a id='request_fail_ditail"+i+"' data-title = '匹配请求失败详情' data-val = '"+JSON.stringify(paramsyFailResultData)+"'>匹配请求失败详情</a></td><td><a id='request_warning_ditail"+i+"' data-title = '匹配请求警告详情' data-val = '"+JSON.stringify(paramsyWarningResultData)+"'>匹配请求警告详情</a></td><td><a id='request_error_ditail"+i+"' data-title = '匹配请求错误详情' data-val = '"+JSON.stringify(paramsyErrorResultData)+"'>匹配请求错误详情</a></td></tr></table><table class='table table-bordered'><tr><td><a id='response_success_ditail"+i+"' data-title = '匹配返回成功详情' data-val = '"+JSON.stringify(spSuccessResultData)+"'>匹配返回成功详情</a></td><td><a id='response_fail_ditail"+i+"' data-title = '匹配返回失败详情' data-val = '"+JSON.stringify(spFaileResultData)+"'>匹配返回失败详情</a></td><td><a id='response_warning_ditail"+i+"' data-title = '匹配返回警告详情' data-val = '"+JSON.stringify(spWarningResultData)+"'>匹配返回警告详情</a></td><td><a id='response_error_ditail"+i+"' data-title = '匹配返回错误详情' data-val = '"+JSON.stringify(spErrorResultData)+"'>匹配返回错误详情</a></td></tr></table></div></div></div>"
+        //                }
+        //                document.getElementById("insertDiv").innerHTML = insertHtml
+        //             }
+        //             if(statusTxt=="error"){
+        //                 // document.getElementById("test").innerHTML="error"
+        //                 console.log("load jsonFile error")
+        //             }
+        //         });
+
+                $('#insertDiv').on('click', function(event) {
+                    // console.log(event.target);
+                    let text=$(event.target).attr('data-val');
+                    let title=$(event.target).attr('data-title');
+                    let tag=$(event.target).attr('data-tag');
+                    let titleAry = $(event.target).attr('data-titlejson')
+                    let contentAry = $(event.target).attr('data-contentjson')
+
+                    if(tag==undefined){
+                        if(text==undefined){
+                            // console.log("text值为undefined");
+                        }else{
+                            // console.log("text值为："+text);
+                            popBox(title,text)
+                        }
+                    }else{
+                        // console.log("tag:"+tag)
+                        popTitleBox(titleAry,contentAry)
+                    }
+                    
+                })
+
+                
+        });
+
+        // function loadImgWH(){
+        //     var img=document.getElementById("myTestImg")
+        //     let testSrc=img.src
+        //     console.log(img.naturalWidth)
+        //     console.log(img.naturalHeight)
+        //     $("#myTestImg").css("width",img.naturalWidth/4)
+        //     $("#myTestImg").css("height",img.naturalHeight/4)
+
+        //     var img2=document.getElementById("myTestImg2")
+        //     $("#myTestImg2").css("width",img2.naturalWidth/4)
+        //     $("#myTestImg2").css("height",img2.naturalHeight/4)
+        // }
+
+        // /*时间戳转换*/
+        // function timestampToTime(timestamp) {
+	    //     var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+	    //     var Y = date.getFullYear() + '-';
+	    //     var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+	    //     var D = date.getDate() + ' ';
+	    //     var h = date.getHours() + ':';
+	    //     var m = date.getMinutes() + ':';
+	    //     var s = date.getSeconds();
+	    //     return Y + M + D + h + m + s;
+	    // }
+
+        /*点击弹出按钮*/
+        function popBox(title,text) {
+            // console.log("传进来："+text)
+            let popBox = document.getElementById("popBox");
+            var popLayer = document.getElementById("popLayer");
+            popBox.style.display = "block";
+            popLayer.style.display = "block";
+            //设置对齐
+            // document.getElementById("showCode").innerText = JSON.stringify(JSON.parse(text), null, 4);
+            $("#showCode").text(JSON.stringify(JSON.parse(text), null, 4))  
+            $("#floatTitle").text(title)    
+            $("#floatTitle").css('fontSize','20px')      
+        }
+ 
+        /*点击关闭按钮*/
+        function closeBox() {
+            let popBox = document.getElementById("popBox");
+            var popLayer = document.getElementById("popLayer");
+            popBox.style.display = "none";
+            popLayer.style.display = "none";
+        }
+        /*点击弹出框2*/
+        function popTitleBox(mytitle,mycontent){
+  
+            popBox2.style.display = "block"
+            popLayer.style.display = "block";
+            let html = ""
+            for(let i = 0;i<JSON.parse(mytitle).length;i++){
+                // html += "<fron id = 'wtFloatTitle"+i+"' style='text-align:center;width:100%;float:left'>"+JSON.parse(mytitle)[i]+"</fron><pre id='wtShowCode"+i+"'>"+JSON.parse(mycontent)[i]+"</pre>"
+                html += "<fron id = 'wtFloatTitle"+i+"' style='text-align:center;width:100%;float:left;font-size: 20px'>"+JSON.parse(mytitle)[i]+"</fron><pre ><code id='wtShowCode"+i+"' class='language-json'>"+JSON.stringify(JSON.parse(mycontent)[i],null,4) +"</code></pre>"
+            }
+            var body=document.getElementById("mainBody")
+            document.getElementById("wtHeadDiv").innerHTML=html
+        }
+        /*点击关闭2*/
+        function closeTitleBox(){
+            let popBox2 = document.getElementById("popBox2");
+            var popLayer = document.getElementById("popLayer");
+            popBox2.style.display = "none";
+            popLayer.style.display = "none";
+        }
+        /*点击遮罩层*/
+        function clickPopLayer(){
+            let popLayer = document.getElementById("popLayer");
+            let popBox2 = document.getElementById("popBox2");
+            let popBox = document.getElementById("popBox");
+            popBox.style.display = "none";
+            popBox2.style.display = "none";
+            popLayer.style.display = "none";
+        }
+    </script>
+</body>
+</html>
